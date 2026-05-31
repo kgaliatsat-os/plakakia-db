@@ -51,3 +51,27 @@ CREATE TABLE timologia (
 
 INSERT INTO timologia VALUES (1, 1, '2026-05-31', 1295.00, 310.80, 1605.80, 'Plirothei');
 INSERT INTO timologia VALUES (2, 2, '2026-05-31', 555.00, 133.20, 688.20, 'Mh Plirothei');
+CREATE TABLE promitheftes (
+    id INTEGER PRIMARY KEY,
+    onoma TEXT NOT NULL,
+    tilefono TEXT,
+    email TEXT,
+    diefthinsi TEXT
+);
+
+CREATE TABLE agores (
+    id INTEGER PRIMARY KEY,
+    promitheftis_id INTEGER,
+    proion_id INTEGER,
+    posotita REAL,
+    timi_agoris REAL,
+    imerominia DATE,
+    FOREIGN KEY (promitheftis_id) REFERENCES promitheftes(id),
+    FOREIGN KEY (proion_id) REFERENCES proionta(id)
+);
+
+INSERT INTO promitheftes VALUES (1, 'Graniti Hellas', '2101111111', 'info@graniti.gr', 'Athinon 100');
+INSERT INTO promitheftes VALUES (2, 'Grohe Hellas', '2102222222', 'info@grohe.gr', 'Kifisias 50');
+
+INSERT INTO agores VALUES (1, 1, 1, 500, 15.00, '2026-05-01');
+INSERT INTO agores VALUES (2, 2, 2, 20, 120.00, '2026-05-01');
