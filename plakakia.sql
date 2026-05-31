@@ -37,3 +37,17 @@ INSERT INTO pelates VALUES (2, 'Eleni', 'Nikolaou', '6902222222', 'eleni@email.c
 
 INSERT INTO paraggelies VALUES (1, 1, 1, 50, '2026-05-31', 'Paid');
 INSERT INTO paraggelies VALUES (2, 2, 3, 30, '2026-05-31', 'Pending');
+
+CREATE TABLE timologia (
+    id INTEGER PRIMARY KEY,
+    paragelia_id INTEGER,
+    imerominia DATE,
+    poso REAL,
+    fpa REAL,
+    synolo REAL,
+    katastasi TEXT DEFAULT 'Mh Plirothei',
+    FOREIGN KEY (paragelia_id) REFERENCES paraggelies(id)
+);
+
+INSERT INTO timologia VALUES (1, 1, '2026-05-31', 1295.00, 310.80, 1605.80, 'Plirothei');
+INSERT INTO timologia VALUES (2, 2, '2026-05-31', 555.00, 133.20, 688.20, 'Mh Plirothei');
